@@ -1,0 +1,112 @@
+[gd_resource type="Theme" format=3 uid="uid://ddffo522eiqi"]
+
+[ext_resource type="Texture2D" uid="uid://b8tq0cle0vi2k" path="res://assets/game/ui/button_disabled.png" id="button_disabled"]
+[ext_resource type="Texture2D" uid="uid://uxh0kf38jxb3" path="res://assets/game/ui/button_hover.png" id="button_hover"]
+[ext_resource type="Texture2D" uid="uid://kt40376ylte4" path="res://assets/game/ui/button_normal.png" id="button_normal"]
+[ext_resource type="Texture2D" uid="uid://b8qs3axhcmg7g" path="res://assets/game/ui/button_pressed.png" id="button_pressed"]
+[ext_resource type="FontFile" uid="uid://be231qortbrmm" path="res://assets/game/font.ttf" id="font"]
+[ext_resource type="Texture2D" uid="uid://dnbd32o6s0eii" path="res://assets/game/ui/hearts.png" id="hearts"]
+
+[sub_resource type="StyleBoxTexture" id="button_disabled"]
+content_margin_left = 6.0
+content_margin_top = 5.0
+content_margin_right = 6.0
+content_margin_bottom = 5.0
+texture = ExtResource("button_disabled")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="focus"]
+bg_color = Color(0, 0, 0, 0)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.97, 0.82, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxTexture" id="button_hover"]
+content_margin_left = 6.0
+content_margin_top = 5.0
+content_margin_right = 6.0
+content_margin_bottom = 5.0
+texture = ExtResource("button_hover")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="button_pressed"]
+content_margin_left = 6.0
+content_margin_top = 5.0
+content_margin_right = 6.0
+content_margin_bottom = 5.0
+texture = ExtResource("button_pressed")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="button_normal"]
+content_margin_left = 6.0
+content_margin_top = 5.0
+content_margin_right = 6.0
+content_margin_bottom = 5.0
+texture = ExtResource("button_normal")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="panel"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.11, 0.18, 0.21, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.7, 0.58, 0.37, 1)
+shadow_color = Color(0.02, 0.04, 0.08, 0.45)
+shadow_size = 2
+shadow_offset = Vector2(2, 3)
+anti_aliasing = false
+
+[sub_resource type="FontVariation" id="spaced_font"]
+base_font = ExtResource("font")
+spacing_space = 2
+
+[sub_resource type="AtlasTexture" id="heart_empty"]
+atlas = ExtResource("hearts")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="heart_full"]
+atlas = ExtResource("hearts")
+region = Rect2(64, 0, 16, 16)
+
+[resource]
+default_font = SubResource("spaced_font")
+default_font_size = 8
+Button/colors/font_color = Color(0.16, 0.12, 0.12, 1)
+Button/colors/font_disabled_color = Color(0.42, 0.33, 0.29, 1)
+Button/colors/font_focus_color = Color(0.1, 0.08, 0.08, 1)
+Button/colors/font_hover_color = Color(0.1, 0.08, 0.08, 1)
+Button/colors/font_pressed_color = Color(0.1, 0.08, 0.08, 1)
+Button/styles/disabled = SubResource("button_disabled")
+Button/styles/focus = SubResource("focus")
+Button/styles/hover = SubResource("button_hover")
+Button/styles/hover_pressed = SubResource("button_pressed")
+Button/styles/normal = SubResource("button_normal")
+Button/styles/pressed = SubResource("button_pressed")
+HBoxContainer/constants/separation = 8
+Label/colors/font_color = Color(0.96, 0.92, 0.82, 1)
+PanelContainer/styles/panel = SubResource("panel")
+RichTextLabel/colors/default_color = Color(0.96, 0.92, 0.82, 1)
+VBoxContainer/constants/separation = 6
+metadata/heart_full = SubResource("heart_full")
+metadata/heart_empty = SubResource("heart_empty")

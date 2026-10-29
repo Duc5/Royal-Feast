@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3]
+[ext_resource type="Script" path="res://scripts/world/atmosphere_particles.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/game/environment/spark.png" id="2"]
+[sub_resource type="AtlasTexture" id="Flake"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 10, 8)
+[node name="Embers" type="CPUParticles2D"]
+position = Vector2(480, 384)
+z_index = 5
+texture_filter = 1
+amount = 25
+lifetime = 8.0
+preprocess = 8.0
+fixed_fps = 60
+fract_delta = false
+texture = SubResource("Flake")
+emission_shape = 3
+emission_rect_extents = Vector2(480, 384)
+direction = Vector2(0.21693, -0.976187)
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 18.439
+initial_velocity_max = 18.439
+color = Color(1, 0.65, 0.25, 0.5)
+script = ExtResource("1")

@@ -1,0 +1,555 @@
+[gd_scene format=3 uid="uid://wt7hijqs3t1c"]
+
+[ext_resource type="Script" uid="uid://cxekd3tyye8a8" path="res://scripts/ui/hud.gd" id="hud"]
+[ext_resource type="Script" uid="uid://gsxlbl2pxhk6" path="res://scripts/ui/map_view.gd" id="map"]
+[ext_resource type="Texture2D" uid="uid://yhcf6xe1y60x" path="res://assets/custom/rock.svg" id="stone"]
+[ext_resource type="Theme" uid="uid://ddffo522eiqi" path="res://assets/game/ui/royal_feast_theme.tres" id="theme"]
+
+[sub_resource type="Animation" id="reveal"]
+resource_name = "reveal"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.025, 0.04, 0.07, 0), Color(0.025, 0.04, 0.07, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="ending_library"]
+_data = {
+&"reveal": SubResource("reveal")
+}
+
+[node name="HUD" type="CanvasLayer" unique_id=1411015889]
+layer = 10
+
+[node name="Canvas" type="Control" parent="." unique_id=304119187]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("theme")
+script = ExtResource("hud")
+
+[node name="HUDOverlay" type="Control" parent="Canvas" unique_id=1734438103]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopBar" type="PanelContainer" parent="Canvas/HUDOverlay" unique_id=1207105781]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 634.0
+offset_bottom = 39.0
+mouse_filter = 2
+
+[node name="Content" type="HBoxContainer" parent="Canvas/HUDOverlay/TopBar" unique_id=1847935775]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Location" type="VBoxContainer" parent="Canvas/HUDOverlay/TopBar/Content" unique_id=876548610]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Title" type="Label" parent="Canvas/HUDOverlay/TopBar/Content/Location" unique_id=1336722401]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "A ROYAL FEAST"
+
+[node name="Region" type="Label" parent="Canvas/HUDOverlay/TopBar/Content/Location" unique_id=1746186057]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Bramblewick Village"
+
+[node name="Count" type="Label" parent="Canvas/HUDOverlay/TopBar/Content" unique_id=906493973]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "ROYAL INGREDIENTS   0 / 3"
+vertical_alignment = 1
+
+[node name="Ingredients" type="HBoxContainer" parent="Canvas/HUDOverlay/TopBar/Content" unique_id=1715568504]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 1
+
+[node name="Item0" type="TextureRect" parent="Canvas/HUDOverlay/TopBar/Content/Ingredients" unique_id=1832659995]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Item1" type="TextureRect" parent="Canvas/HUDOverlay/TopBar/Content/Ingredients" unique_id=332644951]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Item2" type="TextureRect" parent="Canvas/HUDOverlay/TopBar/Content/Ingredients" unique_id=774749777]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Hearts" type="HBoxContainer" parent="Canvas/HUDOverlay" unique_id=2087597680]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 45.0
+offset_right = 78.0
+offset_bottom = 61.0
+mouse_filter = 2
+theme_override_constants/separation = 3
+
+[node name="Heart0" type="TextureRect" parent="Canvas/HUDOverlay/Hearts" unique_id=2060964492]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart1" type="TextureRect" parent="Canvas/HUDOverlay/Hearts" unique_id=194343288]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart2" type="TextureRect" parent="Canvas/HUDOverlay/Hearts" unique_id=1157263559]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Minimap" type="PanelContainer" parent="Canvas/HUDOverlay" unique_id=695853819]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 45.0
+offset_right = 630.0
+offset_bottom = 127.0
+mouse_filter = 2
+
+[node name="Content" type="VBoxContainer" parent="Canvas/HUDOverlay/Minimap" unique_id=2134287158]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 1
+
+[node name="Map" type="Control" parent="Canvas/HUDOverlay/Minimap/Content" unique_id=779326481]
+custom_minimum_size = Vector2(92, 55)
+clip_contents = true
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("map")
+
+[node name="Help" type="Label" parent="Canvas/HUDOverlay/Minimap/Content" unique_id=681951645]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "M  MAP"
+horizontal_alignment = 1
+
+[node name="BottomBar" type="PanelContainer" parent="Canvas/HUDOverlay" unique_id=1195934102]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 334.0
+offset_right = 634.0
+offset_bottom = 357.0
+mouse_filter = 2
+
+[node name="Text" type="Label" parent="Canvas/HUDOverlay/BottomBar" unique_id=829594600]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "WASD Move  Left Click Whack  Shift Dodge  Space Jump  E Use  H Hint  Esc Pause"
+horizontal_alignment = 1
+
+[node name="Stone" type="HBoxContainer" parent="Canvas/HUDOverlay" unique_id=1377470905]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 64.0
+offset_right = 254.0
+offset_bottom = 84.0
+mouse_filter = 2
+
+[node name="Icon" type="TextureRect" parent="Canvas/HUDOverlay/Stone" unique_id=697233532]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("stone")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Text" type="Label" parent="Canvas/HUDOverlay/Stone" unique_id=1265608925]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "STONE READY  |  RMB Throw"
+
+[node name="Prompt" type="PanelContainer" parent="Canvas/HUDOverlay" unique_id=254064507]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 302.0
+offset_right = 490.0
+offset_bottom = 328.0
+mouse_filter = 2
+
+[node name="Text" type="Label" parent="Canvas/HUDOverlay/Prompt" unique_id=389327488]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+
+[node name="TitleScreen" type="Control" parent="Canvas" unique_id=2076104971]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shade" type="ColorRect" parent="Canvas/TitleScreen" unique_id=637218548]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.025, 0.04, 0.07, 0.74)
+
+[node name="Panel" type="PanelContainer" parent="Canvas/TitleScreen" unique_id=1307582843]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 39.0
+offset_right = 546.0
+offset_bottom = 322.0
+mouse_filter = 1
+
+[node name="Content" type="VBoxContainer" parent="Canvas/TitleScreen/Panel" unique_id=1242738085]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Eyebrow" type="Label" parent="Canvas/TitleScreen/Panel/Content" unique_id=1885650815]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "CHEF GAME"
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="Canvas/TitleScreen/Panel/Content" unique_id=49699839]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "A ROYAL FEAST"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Canvas/TitleScreen/Panel/Content" unique_id=279216774]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "An invitation. Three ingredients. One enormous spatula."
+horizontal_alignment = 1
+
+[node name="Ingredients" type="HBoxContainer" parent="Canvas/TitleScreen/Panel/Content" unique_id=1780093233]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Item0" type="TextureRect" parent="Canvas/TitleScreen/Panel/Content/Ingredients" unique_id=419325773]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Item1" type="TextureRect" parent="Canvas/TitleScreen/Panel/Content/Ingredients" unique_id=882874718]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Item2" type="TextureRect" parent="Canvas/TitleScreen/Panel/Content/Ingredients" unique_id=1855498610]
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="New" type="Button" parent="Canvas/TitleScreen/Panel/Content" unique_id=1130981175]
+custom_minimum_size = Vector2(226, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Begin a new adventure"
+metadata/action = "new"
+
+[node name="Continue" type="Button" parent="Canvas/TitleScreen/Panel/Content" unique_id=178632560]
+custom_minimum_size = Vector2(226, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continue your journey"
+metadata/action = "continue"
+
+[node name="Motto" type="Label" parent="Canvas/TitleScreen/Panel/Content" unique_id=822381556]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 8
+text = "Explore freely. Ask questions. Experiment."
+horizontal_alignment = 1
+
+[node name="Credit" type="Label" parent="Canvas/TitleScreen/Panel/Content" unique_id=994395138]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "A native Godot adventure  /  Art & audio: Pixel-boy + AAA"
+horizontal_alignment = 1
+
+[node name="DialogueScreen" type="Control" parent="Canvas" unique_id=398018614]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Canvas/DialogueScreen" unique_id=286328606]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 204.0
+offset_right = 576.0
+offset_bottom = 328.0
+mouse_filter = 1
+
+[node name="Content" type="VBoxContainer" parent="Canvas/DialogueScreen/Panel" unique_id=1985440863]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Speaker" type="Label" parent="Canvas/DialogueScreen/Panel/Content" unique_id=1463266032]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+
+[node name="Body" type="RichTextLabel" parent="Canvas/DialogueScreen/Panel/Content" unique_id=66397010]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_font_sizes/normal_font_size = 9
+
+[node name="Footer" type="HBoxContainer" parent="Canvas/DialogueScreen/Panel/Content" unique_id=1378317469]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Help" type="Label" parent="Canvas/DialogueScreen/Panel/Content/Footer" unique_id=287002252]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 7
+text = "E / SPACE / CLICK   Continue"
+
+[node name="Progress" type="Label" parent="Canvas/DialogueScreen/Panel/Content/Footer" unique_id=948487033]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "1 / 1"
+
+[node name="MapScreen" type="Control" parent="Canvas" unique_id=750562834]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shade" type="ColorRect" parent="Canvas/MapScreen" unique_id=1103937163]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.025, 0.04, 0.07, 0.74)
+
+[node name="Panel" type="PanelContainer" parent="Canvas/MapScreen" unique_id=672087798]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 43.0
+offset_right = 505.0
+offset_bottom = 328.0
+mouse_filter = 1
+
+[node name="Content" type="VBoxContainer" parent="Canvas/MapScreen/Panel" unique_id=1574143375]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Canvas/MapScreen/Panel/Content" unique_id=1902410765]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "BRAMBLEWICK VILLAGE"
+horizontal_alignment = 1
+
+[node name="Map" type="Control" parent="Canvas/MapScreen/Panel/Content" unique_id=114859127]
+custom_minimum_size = Vector2(300, 180)
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("map")
+
+[node name="Legend" type="Label" parent="Canvas/MapScreen/Panel/Content" unique_id=1522735118]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "White: chef   Gold: discovered landmark
+Dark: unexplored"
+horizontal_alignment = 1
+
+[node name="Close" type="Button" parent="Canvas/MapScreen/Panel/Content" unique_id=1682203073]
+custom_minimum_size = Vector2(110, 23)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Close"
+metadata/action = "close"
+
+[node name="PauseScreen" type="Control" parent="Canvas" unique_id=56510556]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shade" type="ColorRect" parent="Canvas/PauseScreen" unique_id=1194585440]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.025, 0.04, 0.07, 0.74)
+
+[node name="Panel" type="PanelContainer" parent="Canvas/PauseScreen" unique_id=83461349]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 79.0
+offset_right = 456.0
+offset_bottom = 239.0
+mouse_filter = 1
+
+[node name="Content" type="VBoxContainer" parent="Canvas/PauseScreen/Panel" unique_id=978763551]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Canvas/PauseScreen/Panel/Content" unique_id=1354089698]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "A MOMENT'S REST"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="Canvas/PauseScreen/Panel/Content" unique_id=750478052]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+text = "Resume adventure"
+metadata/action = "resume"
+
+[node name="TitleButton" type="Button" parent="Canvas/PauseScreen/Panel/Content" unique_id=194590809]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+text = "Return to title"
+metadata/action = "title"
+
+[node name="Quit" type="Button" parent="Canvas/PauseScreen/Panel/Content" unique_id=336851209]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+text = "Save & quit"
+metadata/action = "quit"
+
+[node name="Note" type="Label" parent="Canvas/PauseScreen/Panel/Content" unique_id=1779258161]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+text = "Your progress is saved automatically."
+horizontal_alignment = 1
+
+[node name="EndingScreen" type="Control" parent="Canvas" unique_id=1148463266]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shade" type="ColorRect" parent="Canvas/EndingScreen" unique_id=1362218596]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.025, 0.04, 0.07, 0)
+
+[node name="Content" type="VBoxContainer" parent="Canvas/EndingScreen" unique_id=673346774]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 117.0
+offset_right = 600.0
+offset_bottom = 297.0
+mouse_filter = 2
+theme_override_constants/separation = 22
+
+[node name="Title" type="Label" parent="Canvas/EndingScreen/Content" unique_id=1566852461]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "THE INGREDIENTS HAVE BEEN GATHERED"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Canvas/EndingScreen/Content" unique_id=1071127475]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "The real cooking adventure is only beginning..."
+horizontal_alignment = 1
+
+[node name="Thanks" type="Label" parent="Canvas/EndingScreen/Content" unique_id=449110355]
+layout_mode = 2
+theme_override_font_sizes/font_size = 9
+text = "Prototype complete - thank you for playing!"
+horizontal_alignment = 1
+
+[node name="Return" type="Button" parent="Canvas/EndingScreen/Content" unique_id=225255145]
+custom_minimum_size = Vector2(172, 28)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Return to title"
+metadata/action = "title"
+
+[node name="Fade" type="AnimationPlayer" parent="Canvas/EndingScreen" unique_id=511546919]
+libraries/ = SubResource("ending_library")
+
+[node name="Toast" type="PanelContainer" parent="Canvas" unique_id=315331954]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 65.0
+offset_right = 512.0
+offset_bottom = 103.0
+mouse_filter = 2
+
+[node name="Text" type="Label" parent="Canvas/Toast" unique_id=1514429393]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+autowrap_mode = 3

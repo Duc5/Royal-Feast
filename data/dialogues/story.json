@@ -1,0 +1,43 @@
+{
+  "rowan": [
+	"Elder Rowan: The ingredients you seek are no ordinary harvest. Each belongs to a journey",
+  ],
+  "rowan_repeat": [
+    "Elder Rowan: Good luck young man."
+  ],
+  "bram": [
+	"Bram: When the forest won't give you a path, ask the trees.",
+  ],
+  "bram_repeat": [
+	"Bram: That tree by the river has seen better days.",
+  ],
+  "mira": [
+	"Mira: Bring something you can throw. It's better to lose a stone than find out what happens when you jump.",
+  ],
+  "mira_repeat": [
+    "Mira: The mountains leave clues for those patient enough."
+  ],
+  "flint": [
+	"Flint: The furnace doors only opened when the ancient switches were fed the flame they once released.",
+  ],
+  "flint_repeat": [
+    "Flint: Good luck."
+  ],
+  "quill": [
+	"Steward Quill: The royal pantry is still missing its most important ingredients.",
+  ],
+  "quill_repeat": [
+	"Steward Quill: Let me see... Your list is not quite complete.",
+  ],
+  "letter": [
+	"To the Esteemed Chef,",
+	"You have been selected to prepare the King's birthday feast but our pantry is terribly unprepared.",
+	"Find three extraordinary treasures. The Dewcrown Mushroom, the Skyfeather Egg, and the Cinderheart Pepper.",
+	"Return to the Royal Kitchen with all three ingredients.",
+  ],
+  "ending": [
+	"The chef places the three legendary ingredients on the grand kitchen counter.",
+	"Steward Quill: What will you cook now?",
+    "Chef: ...I probably should have thought about that."
+  ]
+}

@@ -1,0 +1,190 @@
+[gd_scene load_steps=5 format=3]
+[ext_resource type="Script" path="res://scripts/world/river_ripples.gd" id="1"]
+[ext_resource type="Texture2D" path="res://assets/game/environment/water_ripples.png" id="2"]
+[ext_resource type="Shader" path="res://assets/game/environment/ripple_mask.gdshader" id="3"]
+[sub_resource type="ShaderMaterial" id="RippleMask"]
+shader = ExtResource("3")
+[node name="RiverRipples" type="Node2D"]
+script = ExtResource("1")
+texture_filter = 1
+modulate = Color(1, 1, 1, 0.35)
+[node name="Ripple00" type="Sprite2D" parent="."]
+position = Vector2(8, 318)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 0
+[node name="Ripple01" type="Sprite2D" parent="."]
+position = Vector2(45, 347)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 1
+[node name="Ripple02" type="Sprite2D" parent="."]
+position = Vector2(82, 376)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 2
+[node name="Ripple03" type="Sprite2D" parent="."]
+position = Vector2(119, 325)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 3
+[node name="Ripple04" type="Sprite2D" parent="."]
+position = Vector2(156, 354)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 0
+[node name="Ripple05" type="Sprite2D" parent="."]
+position = Vector2(193, 383)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 1
+[node name="Ripple06" type="Sprite2D" parent="."]
+position = Vector2(230, 332)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 2
+[node name="Ripple07" type="Sprite2D" parent="."]
+position = Vector2(267, 361)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 3
+[node name="Ripple08" type="Sprite2D" parent="."]
+position = Vector2(304, 390)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 0
+[node name="Ripple09" type="Sprite2D" parent="."]
+position = Vector2(341, 339)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 1
+[node name="Ripple10" type="Sprite2D" parent="."]
+position = Vector2(378, 368)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 2
+[node name="Ripple11" type="Sprite2D" parent="."]
+position = Vector2(415, 397)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 3
+[node name="Ripple12" type="Sprite2D" parent="."]
+position = Vector2(452, 346)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 0
+[node name="Ripple13" type="Sprite2D" parent="."]
+position = Vector2(489, 375)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 1
+[node name="Ripple14" type="Sprite2D" parent="."]
+position = Vector2(526, 324)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 2
+[node name="Ripple15" type="Sprite2D" parent="."]
+position = Vector2(563, 353)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 3
+[node name="Ripple16" type="Sprite2D" parent="."]
+position = Vector2(600, 382)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 0
+[node name="Ripple17" type="Sprite2D" parent="."]
+position = Vector2(637, 331)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 1
+[node name="Ripple18" type="Sprite2D" parent="."]
+position = Vector2(674, 360)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 2
+[node name="Ripple19" type="Sprite2D" parent="."]
+position = Vector2(711, 389)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 3
+[node name="Ripple20" type="Sprite2D" parent="."]
+position = Vector2(748, 338)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 0
+[node name="Ripple21" type="Sprite2D" parent="."]
+position = Vector2(785, 367)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 1
+[node name="Ripple22" type="Sprite2D" parent="."]
+position = Vector2(822, 396)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 2
+[node name="Ripple23" type="Sprite2D" parent="."]
+position = Vector2(859, 345)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 3
+[node name="Ripple24" type="Sprite2D" parent="."]
+position = Vector2(896, 374)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 0
+[node name="Ripple25" type="Sprite2D" parent="."]
+position = Vector2(933, 323)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 1
+[node name="Ripple26" type="Sprite2D" parent="."]
+position = Vector2(26, 352)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 2
+[node name="Ripple27" type="Sprite2D" parent="."]
+position = Vector2(63, 381)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 3
+[node name="Ripple28" type="Sprite2D" parent="."]
+position = Vector2(100, 330)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 0
+[node name="Ripple29" type="Sprite2D" parent="."]
+position = Vector2(137, 359)
+texture = ExtResource("2")
+material = SubResource("RippleMask")
+hframes = 4
+frame = 1
