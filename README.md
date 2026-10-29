@@ -17,13 +17,11 @@ cd Royal-Feast
 | --- | --- |
 | Move | WASD |
 | Aim | Mouse |
-| Attack / reflect | Left click |
+| Attack| Left click |
 | Dodge | Left Shift |
-| Jump / hop from an updraft | Space |
-| Interact / pick up stone | E |
-| Throw stone | Right click |
+| Jump | Space |
+| Interact | E |
 | Optional hint | H |
-| Journal | J |
 | Map | M |
 | Pause | Escape |
 
