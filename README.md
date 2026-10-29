@@ -41,7 +41,7 @@ The entry scene is `scenes/main.tscn`. Region maps are editable scenes under `sc
 
 ## Credits
 
-Artwork, pixel font, music, and selected sounds: **Ninja Adventure by Pixel-boy & AAA**, supplied under CC0. See [the asset manifest](assets/ASSET_MANIFEST.md) and `assets/source/ninja_adventure/LICENSE.txt`.
+Artwork, pixel font, music, and selected sounds: **Ninja Adventure by Pixel-boy & AAA**.
 
 ## Puzzle solution
 Riverwood Forest: Left click the tree near the river 3 times to create a bridge, walk over the other side of the river to gather the Dewcrown mushroom
