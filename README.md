@@ -45,5 +45,7 @@ Artwork, pixel font, music, and selected sounds: **Ninja Adventure by Pixel-boy 
 
 ## Puzzle solution
 Riverwood Forest: Left click the tree near the river 3 times to create a bridge, walk over the other side of the river to gather the Dewcrown mushroom
+
 Whispering Peak: Pick up rocks near the valley, right click them to throw, after some trial and error you will find some wind regions that levitate the rock up, jump between those regions to get to the other side
+
 Emberwood Forge: You must use the spatula to reflect fireballs and redirect it to hit all 3 of the furnace switches, once all 3 have recieved a fireball, the gate will open to collect the Cinderheart pepper 
